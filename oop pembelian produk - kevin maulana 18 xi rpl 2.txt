@@ -1,0 +1,35 @@
+class produk(
+    val nama: String, var harga: Double, var stok: Int, var berat: Double, var merk: String, var deskripsi: String) {
+    
+    fun informasiproduk() {
+        println("informasi produk:")
+        println("----------------------")
+        println("nama produk: $nama")
+        println("harga produk: $harga")
+        println("stok produk: $stok")
+        println("berat produk: $berat")
+        println("merk produk: $merk")
+        println("deskripsi produk: $deskripsi")
+    }
+
+    fun beliproduk(jumlah: Int) {
+        if (jumlah > stok) {
+            println("stok tidak cukup untuk melakukan pembelian.")
+        } else {
+            stok -= jumlah
+            println("pembelian berhasil, stok sekarang: $stok")
+        }
+    }
+}
+
+fun main() {
+    val produk1 = produk("beras", 300000.0, 50, 25.0, "padimas", "produk beras yang dikenal karena kualitasnya yang baik dan harganya terjangkau")
+
+    produk1.informasiproduk()
+	
+    println("======================")
+    println("pembelian:")
+    println("----------------------")
+    produk1.beliproduk(1)
+    produk1.beliproduk(51)
+}
